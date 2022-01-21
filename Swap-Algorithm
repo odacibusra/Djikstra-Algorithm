@@ -1,0 +1,29 @@
+from operator import truediv
+
+
+def howManySwaps(arr):
+    swap = 0
+    del arr[0]
+
+    for i in range(len(arr)-1):
+        j = i
+        for j in range(j,len(arr)):
+         if arr[i] > arr[j]:
+            temp = arr[j]
+            arr[j] = arr[i]
+            arr[i] = temp
+            swap += 1
+    
+        
+        
+    return swap
+
+#arr = [4,5,1,4,2]
+arr = [2, 12, 7]
+#arr = [3, 7, 1, 2]
+print(howManySwaps(arr))
+
+
+"""If the initial array is [5, 1, 4, 2], then the algorithm first picks pair (5, 1) and swaps it to produce array [1,5,4,2].
+Next, it picks pair (5,4) and swaps it to produce array [1,4,5,2]. Next, pair (4,2) is picked and swapped to produce array [1,2,5,4], 
+and finally pair (5,4) is swapped to produce the final sorted array [1,2,4,5], so the number of swaps performed is 4.   """
